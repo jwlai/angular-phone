@@ -14,4 +14,11 @@ describe('PhoneListCtrl', function(){
     expect(scope.name).toBe('World');
   }));
 
+  it('should display the current filter value in the title bar', function() {
+      query.clear();
+      expect(browser.getTitle()).toMatch(/Google Phone Gallery:\s*$/);
+
+      query.sendKeys('nexus');
+      expect(browser.getTitle()).toMatch(/Google Phone Gallery: nexus$/);
+    });
 });
